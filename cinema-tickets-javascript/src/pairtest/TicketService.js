@@ -64,7 +64,7 @@ export default class TicketService {
           SeatReservationService.reserveSeat(accountId, quantity);
         } catch (error) {
           if (error instanceof TypeError) {
-            return "Seat reservation failed: " + error.message;
+            throw new InvalidPurchaseException("Seat Reservation failed.");;
           } else {
             // To handle other types of errors if necessary
             return "Seat reservation failed with an unexpected error";
